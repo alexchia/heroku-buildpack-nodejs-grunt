@@ -10,6 +10,11 @@ Using this buildpack you do not need to commit the results of your Grunt tasks (
 After all the default Node.js and NPM build tasks have finished, the buildpack checks if a Gruntfile (`Gruntfile.js`, `Gruntfile.coffee`or `grunt.js`) exists and executes the `heroku` task by running `grunt heroku`. For details about grunt and how to define tasks, check out the [offical documentation](http://gruntjs.com/getting-started). You must add grunt to the NPM dependencies in your `package.json` file.
 If no Gruntfile exists, the buildpacks simply skips the grunt step and executes like the standard Node.js buildpack.
 
+Edits by Alex
+-----
+- `grunt heroku` will be run post-setup, the NODE_ENV env variable will be ignored
+- the npm modules grunt and grunt-cli are assumed to be installed in node_modules and referenced in package.json, they will not be forcibly downloaded (improves deploy speed)
+
 Usage
 -----
 
